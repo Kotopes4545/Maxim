@@ -1,5 +1,7 @@
-.body {
+*{
   font-family: "Quicksand", sans-serif;
+}
+.body {
   line-height: 1.5;
 }  
 .wrapper {
@@ -50,7 +52,6 @@
   font-size: 20px;
   font-weight: normal;
   line-height: 170%;
-  font-family: "Quicksand", sans-serif;
   
 }
 .header__link--active {
@@ -58,6 +59,7 @@
   text-decoration: underline;
   
 }
+/* ////////////////////////////////////////////////////// */
 .hero {
   background-image: url(../img/Phone.jpg);
   background-size: cover;
@@ -72,6 +74,7 @@
   text-align: center;
   position: relative;
   color: #fff;
+  margin-bottom: 150px;
 }
 
 .hero__inner {
@@ -80,29 +83,177 @@
   padding: 20px;
 }
 .hero__subtitle {
-  font-size: 38px;
+  font-size: 28px;
   color: #fff;
+  margin-bottom: 15px;
 }
 .hero__title {
-  font-size: 7vw;
+  font-size: 6.5vw;
   color: #fff;
+  margin-bottom: 25px;
 }
 .btn {
-  background: gray;
+  background: #f6b570;
   color: #fff;
   padding: 15px;
   font-size: 24px;
   border-radius: 15px;
   opacity: 0.9;
+  transition: all 0.4s ease-in-out;
+}
+.btn:hover {
+  transform: scale(1.2); 
+  transition: all 0.4s ease-in-out;
 }
 .hero__link {
   cursor: pointer;
 }
 
+/* ////////////////////////////////////////////////////// */
 .main {
   flex-grow: 1;
   /* background: green; */
 }
+.about {
+  margin-bottom: 150px;
+}
+.about__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.about__title {
+  font-size: 60px;
+  max-width: 600px;
+}
+.about__accent {
+  background: linear-gradient(to right bottom, #f9aef1, #5d0879);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+}
+.about__text {
+  max-width: 700px;
+}
+/* ////////////////////////////////////////////////////// */
+.advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Отступ между элементами */
+  margin-bottom: 150px;
+}
+.advantage__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Отступ между фигурами */
+  width: 100%;
+  max-width: 1200px;
+}
+
+.advantage__inner {
+  text-align: center;
+  max-width: 800px;
+}
+.bg-shape {
+  width: 45%;
+  max-width: 600px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+}
+
+.left {
+  align-self: flex-start;
+  background: linear-gradient(to right, #f9aef1, #5d0879);
+  clip-path: polygon(0 10%, 10px 0, 100% 0, 100% 90%, 10px 90%, 0 100%);
+  border-radius: 20px 40px 40px 0;
+}
+.right {
+  align-self: flex-end;
+  background: linear-gradient(to left, #5d0879, #f9aef1);
+  clip-path: polygon(0 0, 100% 0, 100% 90%, calc(100% + 12px) 100%, 0 100%, 0 90%);
+  border-radius:40px 20px 0 40px;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+@keyframes remove-caret {
+  to { border-right: none; }
+}
+.typing-indicator {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.message {
+  display: none; /* Сообщения изначально скрыты */
+  opacity: 0;
+  max-width: 80%;
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-in-out;
+  color: #fff;
+}
+
+.message.left {
+  align-self: flex-start;
+  background: linear-gradient(to right, #f9aef1, #5d0879);
+  border-radius: 20px 40px 40px 0;
+}
+
+.message.right {
+  align-self: flex-end;
+  background: linear-gradient(to left, #5d0879, #f9aef1);
+  border-radius: 40px 20px 0 40px;
+}
+
+.typing-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white; /* Каретка при наборе текста */
+  display: inline-block;
+  width: 0;
+  animation: typing 2s steps(20, end) forwards, remove-caret 0s 2s forwards;
+}
+.message.left .typing-text {
+  width: auto; 
+  animation: none;
+  border-right: none;
+}
+/* ////////////////////////////////////////////////////// */
 .footer{
   height: 100px;
   width: 100%;
